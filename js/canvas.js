@@ -1,8 +1,4 @@
 // for development
-$().ready(function(){
-  drawTop();
-});
-
 var widthHeavy = 10;
 var widthThin = 1;
 var colorDark = "#000";

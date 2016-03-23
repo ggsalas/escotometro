@@ -1,32 +1,31 @@
+//* Data
+var latitude = ""; 
+var lon = 0;
 var date = new Date();
-date.setDate(21);
-var month = 11;
+date.setDate(21); //allways calc day 21
+date.setMonth(11); // start calculating december
+
+//* Data update
+$('.lat-value').change(function() {
+  latitude = $('.lat-value').val();
+  updateView( result( date, latitude) );
+  updateSolsticeNames();
+});  
 
 $('.december').click(function(){
-  month = 11; // december
-  date.setMonth(month);
-  console.log('local Month: ' + month);
-  // add class to button "selected"
+  updateView( result( date.setMonth(11), latitude) )
 });
+
 $('.march').click(function(){
-  month = 2;
-  date.setMonth(month);
-  console.log('local Month: ' + month);
+  updateView( result( date.setMonth(2), latitude ) )
 });
+
 $('.june').click(function(){
-  month = 5;
-  date.setMonth(month);
-  console.log('local Month: ' + month);
+  updateView( result( date.setMonth(5), latitude ) )
 });
 
-//date.setMonth(month);
-console.log('global Month: ' + month);
-
-
-// The responses appears once has a latitude value
-$('.lat-value').change(function() {
-  var lat = $('.lat-value').val();
-  var lon = 0;
+//* Perform calculations to get result
+var result = function (date, lat ) {
 
   // Solar times for specific date
   var times = SunCalc.getTimes(date, lat, lon);
@@ -40,9 +39,28 @@ $('.lat-value').change(function() {
   // Get max altitude above horizon on the day
   var maxAltitude = SunCalc.getPosition(times.solarNoon, lat, lon).altitude * 180 / Math.PI;
 
-  $('.sunriseAzimuth').html('<p>Acimut amanecer: ' + sunriseAzimuth + '<p>');
-  $('.sunsetAzimuth').html('<p>Acimut anochecer: ' + sunsetAzimuth + '<p>');
-  $('.maxAltitude').html('<p>Altura máxima sobre el horizonte: ' + maxAltitude + '<p>');
-  drawTop();
-});  
+  return {
+    sunriseAzimuth: sunriseAzimuth,
+    sunsetAzimuth: sunsetAzimuth,
+    maxAltitude: maxAltitude,
+  }
+}
 
+//* Display result
+var updateView = function (position) {
+  $('.sunriseAzimuth').html('<p>Acimut amanecer: ' + position.sunriseAzimuth + '<p>');
+  $('.sunsetAzimuth').html('<p>Acimut anochecer: ' + position.sunsetAzimuth + '<p>');
+  $('.maxAltitude').html('<p>Altura máxima sobre el horizonte: ' + position.maxAltitude + '<p>');
+  drawTop();
+}
+
+// Change solstice name for northern hemisphere
+var updateSolsticeNames = function(){
+  if(latitude > 0){
+    $('.december').text("Solsticio Invierno");
+    $('.june').text("Solsticio Verano");
+  }else{
+    $('.december').text("Solsticio Verano");
+    $('.june').text("Solsticio Invierno");      
+  }
+}
