@@ -1,5 +1,5 @@
 //* Data
-var latitude = ''; 
+var latitude = 'x'; 
 var lon = 0;
 var date = new Date();
 date.setDate(21); //allways calc day 21
@@ -23,6 +23,7 @@ $('.lat-value').change(function() {
   latitude = $('.lat-value').val();
   updateView( result( date.setMonth(monthNumber), latitude), month) ;
   updateSolsticeNames();
+  $('.help').css('display', 'none');
 });  
 
 $('.december').click(function(){
@@ -91,7 +92,7 @@ var updateView = function (position, month) {
   console.log(month);
   console.log(monthNumber);
 
-  // drawing canvas
+  // draw canvas top 
   if(latitude <= 0){
     drawTop(start, stop);
     totalPath = 360 - (( stop - start ) * 180 / Math.PI);
@@ -121,6 +122,7 @@ var updateView = function (position, month) {
     $('.background').css('background-image','url("../img/equinox.jpg")');
   }
 
+  // draw canvas side 
   drawSide(position.maxAltitude);
 
   $('.draw-top-text').html('<h3 class="draw-title">Día</h3>' +
