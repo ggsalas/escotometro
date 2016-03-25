@@ -13,19 +13,34 @@ $('.lat-value').change(function() {
 });  
 
 $('.december').click(function(){
-  updateView( result( date.setMonth(11), latitude) )
+  updateView( result( date.setMonth(11), latitude) );
+  $('.button').removeClass('button-active');
+  $(this).addClass('button-active');
+  if (latitude <= 0)
+    $('.background').css('background-image','url("../img/summer.jpg")');
+  else
+    $('.background').css('background-image','url("../img/winter.jpg")');
 });
 
 $('.march').click(function(){
-  updateView( result( date.setMonth(2), latitude ) )
+  updateView( result( date.setMonth(2), latitude ) );
+  $('.button').removeClass('button-active');
+  $(this).addClass('button-active');  
+  $('.background').css('background-image','url(\'../img/equinox.jpg\')');
 });
 
 $('.june').click(function(){
   updateView( result( date.setMonth(5), latitude ) )
+  $('.button').removeClass('button-active');
+  $(this).addClass('button-active');  
+  if (latitude <= 0)
+    $('.background').css('background-image','url(\'../img/winter.jpg\')');
+  else
+    $('.background').css('background-image','url(\'../img/summer.jpg\')');
 });
 
 //* Perform calculations to get result
-var result = function (date, lat ) {
+var result = function (date, lat) {
 
   // Solar times for specific date
   var times = SunCalc.getTimes(date, lat, lon);

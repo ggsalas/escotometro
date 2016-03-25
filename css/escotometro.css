@@ -27,7 +27,7 @@ body{
   margin-top: 0;
 }
 .dates{
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .result {
   margin-bottom: 40px;
@@ -36,6 +36,10 @@ body{
   width: 100%;
   padding: 20px 0;
   box-shadow: 0 0 20px rgba(0,0,0, .3);
+}
+.background{
+  background-position: 0 0;
+  background-size: cover;
 }
 .background-winter{
   background: url('../img/winter.jpg') 0 0 no-repeat;
@@ -102,7 +106,7 @@ body{
   border: 6px solid #fff;
 }
 .button.white:hover,
-.button.white.active{
+.button.white.button-active{
   background-color: #fff;
   color: #000;
 }
