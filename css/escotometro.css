@@ -41,22 +41,10 @@ body{
   background-position: 0 0;
   background-size: cover;
 }
-.background-winter{
-  background: url('../img/winter.jpg') 0 0 no-repeat;
-  background-size: cover;
+.drawing{
+  width: 320px;
+  height: auto;
 }
-.background-summer{
-  background: url('../img/summer.jpg') 0 0 no-repeat;
-  background-size: cover;
-}
-.background-equinox{
-  background: url('../img/equinox.jpg') 0 0 no-repeat;
-  background-size: cover;
-}
-.background-blur{
-  background: url('../img/equinox.jpg') 0 0;
-}
-
 
 /**
  * Text
@@ -93,7 +81,7 @@ body{
   display: inline-block;
   cursor: pointer;
   text-transform: uppercase;
-  margin: 0 10px;
+  margin: 10px;
 }
 .button.black{
   border: 6px solid #000;

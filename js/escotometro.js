@@ -1,42 +1,46 @@
 //* Data
-var latitude = ""; 
+var latitude = ''; 
 var lon = 0;
 var date = new Date();
 date.setDate(21); //allways calc day 21
-date.setMonth(11); // start calculating december
+
+// default month or selected month
+var month = '';
+if (month == '')
+  month = 'december';
+else
+  month = month;
+
+// default monthNumber or selected monthNumber
+var monthNumber = '';
+if (monthNumber == '')
+  monthNumber = 11;
+else 
+  monthNumber = monthNumber;
 
 //* Data update
 $('.lat-value').change(function() {
   latitude = $('.lat-value').val();
-  updateView( result( date, latitude) );
+  updateView( result( date.setMonth(monthNumber), latitude), month) ;
   updateSolsticeNames();
 });  
 
 $('.december').click(function(){
-  updateView( result( date.setMonth(11), latitude) );
-  $('.button').removeClass('button-active');
-  $(this).addClass('button-active');
-  if (latitude <= 0)
-    $('.background').css('background-image','url("../img/summer.jpg")');
-  else
-    $('.background').css('background-image','url("../img/winter.jpg")');
+  month = 'december';
+  monthNumber = 11;
+  updateView( result( date.setMonth(monthNumber), latitude), month);
 });
 
 $('.march').click(function(){
-  updateView( result( date.setMonth(2), latitude ) );
-  $('.button').removeClass('button-active');
-  $(this).addClass('button-active');  
-  $('.background').css('background-image','url(\'../img/equinox.jpg\')');
+  month = 'march';
+  monthNumber = 2;
+  updateView( result( date.setMonth(monthNumber), latitude), month );  
 });
 
 $('.june').click(function(){
-  updateView( result( date.setMonth(5), latitude ) )
-  $('.button').removeClass('button-active');
-  $(this).addClass('button-active');  
-  if (latitude <= 0)
-    $('.background').css('background-image','url(\'../img/winter.jpg\')');
-  else
-    $('.background').css('background-image','url(\'../img/summer.jpg\')');
+  month = 'june';
+  monthNumber = 5;
+  updateView( result( date.setMonth(monthNumber), latitude), month)
 });
 
 //* Perform calculations to get result
@@ -78,12 +82,16 @@ var result = function (date, lat) {
 }
 
 //* Display result
-var updateView = function (position) {
+var updateView = function (position, month) {
   var start = position.sunriseAzimuth + Math.PI / 2;
   var stop = position.sunsetAzimuth + Math.PI / 2; 
   var totalPath = (( stop - start ) * 180 / Math.PI);
   var maxAltitudeDegrees = position.maxAltitude * 180 / Math.PI;
 
+  console.log(month);
+  console.log(monthNumber);
+
+  // drawing canvas
   if(latitude <= 0){
     drawTop(start, stop);
     totalPath = 360 - (( stop - start ) * 180 / Math.PI);
@@ -91,6 +99,28 @@ var updateView = function (position) {
     drawTop(stop, start);
     totalPath = ( stop - start ) * 180 / Math.PI;
   }
+
+  // button selected and background
+  if (month == 'december'){
+    $('.button').removeClass('button-active');
+    $('.december').addClass('button-active');
+    if (latitude <= 0)
+       $('.background').css('background-image','url("../img/summer.jpg")');
+    else
+       $('.background').css('background-image','url("../img/winter.jpg")');
+  } else if (month == 'june'){
+    $('.button').removeClass('button-active');
+    $('.june').addClass('button-active');
+    if (latitude <= 0)
+       $('.background').css('background-image','url("../img/winter.jpg")');
+    else
+       $('.background').css('background-image','url("../img/summer.jpg")');
+  } else if (month == 'march'){
+    $('.button').removeClass('button-active');
+    $('.march').addClass('button-active');   
+    $('.background').css('background-image','url("../img/equinox.jpg")');
+  }
+
   drawSide(position.maxAltitude);
 
   $('.draw-top-text').html('<h3 class="draw-title">Día</h3>' +
