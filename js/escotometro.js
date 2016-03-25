@@ -106,20 +106,20 @@ var updateView = function (position, month) {
     $('.button').removeClass('button-active');
     $('.december').addClass('button-active');
     if (latitude <= 0)
-       $('.background').css('background-image','url("../img/summer.jpg")');
+       $('.background').css('background-image','url("img/summer.jpg")');
     else
-       $('.background').css('background-image','url("../img/winter.jpg")');
+       $('.background').css('background-image','url("img/winter.jpg")');
   } else if (month == 'june'){
     $('.button').removeClass('button-active');
     $('.june').addClass('button-active');
     if (latitude <= 0)
-       $('.background').css('background-image','url("../img/winter.jpg")');
+       $('.background').css('background-image','url("img/winter.jpg")');
     else
-       $('.background').css('background-image','url("../img/summer.jpg")');
+       $('.background').css('background-image','url("img/summer.jpg")');
   } else if (month == 'march'){
     $('.button').removeClass('button-active');
     $('.march').addClass('button-active');   
-    $('.background').css('background-image','url("../img/equinox.jpg")');
+    $('.background').css('background-image','url("img/equinox.jpg")');
   }
 
   // draw canvas side 
