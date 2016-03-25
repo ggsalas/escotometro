@@ -4,8 +4,8 @@
 //* Drawing styles
 var widthHeavy = 10;
 var widthThin = 1;
-var colorDark = "#000";
-var colorLight = "#666";
+var colorDark = "#fff";
+var colorLight = "#aaa";
 
 function drawTop(start, stop) {
   var width = 360;

@@ -66,7 +66,8 @@ var result = function (date, lat ) {
 var updateView = function (position) {
   var start = position.sunriseAzimuth + Math.PI / 2;
   var stop = position.sunsetAzimuth + Math.PI / 2; 
-  var totalPath = ( stop - start ) * 180 / Math.PI;
+  var totalPath = (( stop - start ) * 180 / Math.PI);
+  var maxAltitudeDegrees = position.maxAltitude * 180 / Math.PI;
 
   if(latitude <= 0){
     drawTop(start, stop);
@@ -77,20 +78,24 @@ var updateView = function (position) {
   }
   drawSide(position.maxAltitude);
 
-  $('.sunriseAzimuth').html('<p>Acimut amanecer: ' + position.sunriseAzimuth +
-                            'recorrido total: ' + totalPath +
-                            'duración del día: ' + position.dayDuration + '<p>');
-  $('.sunsetAzimuth').html('<p>Acimut anochecer: ' + position.sunsetAzimuth + '<p>');
-  $('.maxAltitude').html('<p>Altura máxima sobre el horizonte: ' + position.maxAltitude * 180 / Math.PI + '<p>'); 
+  $('.draw-top-text').html('<h3 class="draw-title">Día</h3>' +
+                           '<ul class="draw-result">' +
+                             '<li>' + position.dayDuration + ' Hs - ' + totalPath.toFixed(0) + ' º</li>' +
+                           '</ul>');
+
+  $('.draw-side-text').html( '<h3 class="draw-title">Altura Máxima</h3>' +
+                             '<ul class="draw-result">' +
+                               '<li>' + maxAltitudeDegrees.toFixed(0) + 'º</li>' +
+                             '</ul>');
 }
 
 // Change solstice name for northern hemisphere
 var updateSolsticeNames = function(){
   if(latitude > 0){
-    $('.december').text("Solsticio Invierno");
-    $('.june').text("Solsticio Verano");
+    $('.december').text("Invierno");
+    $('.june').text("Verano");
   }else{
-    $('.december').text("Solsticio Verano");
-    $('.june').text("Solsticio Invierno");      
+    $('.december').text("Verano");
+    $('.june').text("Invierno");      
   }
 }
