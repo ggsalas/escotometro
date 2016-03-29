@@ -1,5 +1,5 @@
 //* Data
-var latitude = 'x'; 
+var latitude = ''; 
 var lon = 0;
 var date = new Date();
 date.setDate(21); //allways calc day 21
@@ -92,6 +92,13 @@ var updateView = function (position, month) {
   console.log(month);
   console.log(monthNumber);
 
+  // display results
+  if( latitude != ''){
+    $('.dates').css('display','block');
+    $('.result').css('display','inline-block');
+    $('.container').css('background-color', 'rgba(0,0,0,.5)');
+  }
+
   // draw canvas top 
   if(latitude <= 0){
     drawTop(start, stop);
@@ -146,3 +153,17 @@ var updateSolsticeNames = function(){
     $('.june').text("Invierno");      
   }
 }
+
+
+/**
+ * Windows magnament
+ * *****************/
+// Show help window
+$( ".nav-button-help" ).click(function() {
+  $( ".win-help" ).fadeToggle("slow");
+});
+
+// Close button with all windows
+$( ".win-close" ).click(function() {
+  $( ".window" ).fadeToggle("slow");
+});

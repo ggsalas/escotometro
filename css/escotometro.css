@@ -3,12 +3,10 @@
  */
 body{
   color: #fff;
-  background-color: #333;
+  background-color: #222;
 }
 .container{
   width: 100%;
-  padding-top: 20px;
-  background-color: rgba(0,0,0,.5);
 }
 .wrap{
   max-width: 800px;
@@ -24,19 +22,26 @@ body{
   font-size: 20px;
 }
 .site-title{
+  padding-top: 22px;
   margin-top: 0;
 }
 .dates{
   margin-bottom: 30px;
 }
+
+.dates,
+.result{ 
+  display: none /* initial value */
+}
+
 .result {
   margin-bottom: 40px;
-  display: inline-block;
   background: rgba(0,0,0,.5);
   width: 100%;
   padding: 20px 0;
   box-shadow: 0 0 20px rgba(0,0,0, .3);
 }
+
 .help{
   font-size: 26px;
   color: yellow;
@@ -46,14 +51,17 @@ body{
   padding: 1em;
   border-radius: 1.5em;
 }
+
 .background{
   background-position: 0 0;
   background-size: cover;
 }
+
 .drawing{
   width: 320px;
   height: auto;
 }
+
 .lat-value{
   border: 0;
   border-bottom: 6px solid #fff;
@@ -67,6 +75,81 @@ body{
   background-color: rgba(0,0,0,.5);
   border-color: yellow;
 }
+
+.window{
+  position: absolute;
+  display: block;
+  width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  background-color: #fafafa;
+  top: 0;
+  color: #333;
+  display: none;
+}
+.win-close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px 25px;
+  color: #666;
+  cursor: pointer; 
+}
+.win-close:hover{
+  color: #000;
+} 
+.win-content{
+  padding: 40px;
+}
+.win-content p{
+  max-width: 800px;  
+  margin: 0  auto 1em auto;  
+  text-align: justify;
+}
+.win-content h2,
+.win-content h3{
+  text-align: center;
+}
+.win-content object{
+  margin: 20px auto 40px auto;
+  display: block;
+}
+.navigation{
+  position: absolute;
+  top: 0;
+  display: table;
+  width: calc(100% - 40px);
+  text-align: right;
+  margin: 0;
+  padding: 20px 20px 0px 20px;
+}
+.navigation ul{
+  margin: 0;
+  padding: 0;
+  display: table-cell;
+}
+.nav-left{
+  text-align: left;
+}
+.nav-right{
+  text-align: right;
+} 
+.nav-button{
+  display: inline-block;
+  color: rgba(255,255,255,.4);
+  margin: 0px;
+  list-style: none;
+  padding: 0;
+  cursor: pointer; 
+}
+.nav-button a{
+  color: rgba(255,255,255,.4);
+}
+.nav-button:hover,
+.nav-button a:hover{
+  color: #fff;
+}
+
 /**
  * Text
  */
@@ -189,6 +272,10 @@ body{
 	.two-thirds {
 		margin: 0px;
 		width: 100%;
+  }
+
+  .site-title{
+    font-size: 1.5em;
   }
 }
 @media only screen and (max-width: 799px) {

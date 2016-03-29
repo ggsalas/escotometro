@@ -12,23 +12,22 @@
   </head>
   <body class="background">
     <div class="container">
+      <nav class="navigation">
+        <ul>
+          <li class="nav-button">
+            <a href="https://github.com/ggsalas/escotometro" target="blank">
+              <i class="fa fa-github fa-2x"></i>
+            </a>
+          </li>
+          <li class="nav-button nav-button-help">
+            <i class="fa fa-info-circle fa-2x"></i>
+          </li>
+        </ul>
+      </nav>
       <header>
         <div class="wrap text-center text-title">
           <h1 class="site-title">Escotómetro</h1>
         </div>
-        <nav class="navigation">
-          <ul class="nav-left">
-            <li class="nav-button">
-              <a href="https://github.com/ggsalas/escotometro" target="blank">
-                <i class="fa fa-github fa-2x"></i>
-              </a>
-          </ul>
-          <ul class="nav-right">
-            <li class="nav-button nav-button-help">
-              <i class="fa fa-info-circle fa-2x"></i>
-            </li>
-          </ul>     
-        </nav>
       </header>
       <section>
         <div class="lat-box">
@@ -69,12 +68,11 @@
         <div class="win-content">
           <h2>Sobre el escotómetro</h2>
           <p>El escotómetro permite conocer la posición (en planta) de la salida y puesta del sol, y además indica la altura máxima que tendrá el sol el día 21 del mes correspondiente (equinoccios: marzo/setiembre y solsticios: junio/diciembre).</p>
-          <p> Estos datos permiten una primera aproximación a la información requerida para realizar un diseño arquitectónico que contemple el asoleamiento. Para ampliar estos datos se puede utilizar la web <a target="blank" href="http://suncalc.net/">Suncalc</a>, en quien el escotómetro está basado<p>
+          <p> Estos datos permiten una primera aproximación a la información requerida para realizar un diseño arquitectónico que contemple el asoleamiento. Para ampliar estos datos se puede utilizar la web <a target="blank" href="http://suncalc.net/">Suncalc</a>, de quien el escotómetro obtiene la información</p>
           <p>
           <h2>Sobre el asoleamiento</h2>
           <p>Las siguientes aplicaciones interactivas ayudan a entender el movimiento aparente del sol</p>
-            <object width="950" height="680" data="img/eclipticsimulator.swf"> </object>
-            <object width="950" height="680" data="img/sunmotions.swf"></object>
+
         </div>
       </section>
       <footer>
