@@ -23,13 +23,13 @@ body{
 .site-title{
   padding-top: 22px;
   margin-top: 0;
-  position: relative;
-  z-index: 100;
+  z-index: 10;
 }
 .site-title a{
   color: #fff;
   text-decoration: none;
-  display: block;
+  display: inline-block;
+  position: relative;
 }
 .dates{
   margin-bottom: 30px;
@@ -37,7 +37,7 @@ body{
 
 .dates,
 .result{ 
-  display: none /* initial value */
+  display: none; /* initial value */
 }
 
 .result {
@@ -46,6 +46,8 @@ body{
   width: 100%;
   padding: 20px 0;
   box-shadow: 0 0 20px rgba(0,0,0, .3);
+  position: relative;
+  overflow: hidden;
 }
 
 .help{
@@ -53,7 +55,7 @@ body{
   color: #fff;
   background-color: rgba(0,0,0,.5);
   text-align: center;
-  margin: 0.5em auto;
+  margin: 0.5em 15px;
   padding: .5em;
   border-radius: 1.5em;
 }
@@ -61,8 +63,19 @@ body{
 .background{
   background-position: 0 0;
   background-size: cover;
+  background-attachment: fixed;
 }
-
+.blur{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  -webkit-filter: blur(10px);
+  background-size: cover;
+  z-index: -1;
+  background-attachment: fixed;
+}
 .drawing{
   width: 320px;
   height: auto;
@@ -92,6 +105,7 @@ body{
   top: 0;
   color: #333;
   display: none;
+  z-index: 100;
 }
 .win-close{
   position: absolute;

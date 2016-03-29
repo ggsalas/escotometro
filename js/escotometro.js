@@ -122,21 +122,28 @@ var updateView = function (position, month) {
   if (month == 'december'){
     $('.button').removeClass('button-active');
     $('.december').addClass('button-active');
-    if (latitude <= 0)
+    if (latitude <= 0){
        $('.background').css('background-image','url("img/summer.jpg")');
-    else
+       $('.blur').css('background-image','url("img/summer.jpg")');
+    }else{
        $('.background').css('background-image','url("img/winter.jpg")');
+       $('.blur').css('background-image','url("img/winter.jpg")');
+    }
   } else if (month == 'june'){
     $('.button').removeClass('button-active');
-    $('.june').addClass('button-active');
-    if (latitude <= 0)
+    $('.blur').addClass('button-active');
+    if (latitude <= 0){
        $('.background').css('background-image','url("img/winter.jpg")');
-    else
+       $('.blur').css('background-image','url("img/winter.jpg")');
+    }else{
        $('.background').css('background-image','url("img/summer.jpg")');
+       $('.blur').css('background-image','url("img/summer.jpg")');
+    }
   } else if (month == 'march'){
     $('.button').removeClass('button-active');
     $('.march').addClass('button-active');   
     $('.background').css('background-image','url("img/equinox.jpg")');
+    $('.blur').css('background-image','url("img/equinox.jpg")');
   }
 
   // draw canvas side 
