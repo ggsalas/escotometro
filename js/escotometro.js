@@ -4,6 +4,13 @@ var lon = 0;
 var date = new Date();
 date.setDate(21); //allways calc day 21
 
+//* Google map
+var gmapLat = ""; 
+$('.help').click(function(){
+  gmapLat = $('.gllpLatitude').val(); 
+  console.log(gmapLat);
+});
+
 // default month or selected month
 var month = '';
 if (month == '')
@@ -19,11 +26,14 @@ else
   monthNumber = monthNumber;
 
 //* Data update
-$('.lat-value').change(function() {
-  latitude = $('.lat-value').val();
+$('.locationOk').click(function() {
+  latitude = $('.gllpLatitude').val();
+  var lat0 = parseInt(latitude);
+  $('.lat-box').css('display', 'none');
+  $('.lat-info').css('display', 'inline-block');
+  $('.lat-info').html('Latitud: ' + lat0 + ' º');
   updateView( result( date.setMonth(monthNumber), latitude), month) ;
   updateSolsticeNames();
-  $('.help').css('display', 'none');
 });  
 
 $('.december').click(function(){

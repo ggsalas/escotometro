@@ -8,13 +8,20 @@
     <!-- http://fontawesome.io/ -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+    <!-- Dependencies: JQuery and GMaps API should be loaded first (Wimagguc) -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>      
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <!-- JS for Wimagguc -->
+    <script src="wimagguc/jquery-gmaps-latlon-picker.js"></script>
+
     <title>Escotómetro</title>
   </head>
   <body class="background">
     <div class="container">
       <header>
         <div class="wrap text-center text-title">
-          <h1 class="site-title">Escotómetro</h1>
+          <h1 class="site-title"><a href="http://escotometro.ggsalas.com">Escotómetro</a></h1>
         </div>
         <nav class="navigation">
           <ul class="nav-left">
@@ -33,15 +40,21 @@
       <section>
         <div class="lat-box">
           <div class="wrap text-center">
-            <span>Latitud: </span>
-            <input type="text" class="lat-value" size="3" placeholder="-38"/>
-            <span>grados</span>
             <div class="help">
-              Indique la latitud del lugar
+              Seleccione la ubicación en el mapa
             </div>          
+            <div class="button white locationOk">Aceptar</div>
+            <div class="map">
+              <fieldset class="gllpLatlonPicker">
+              <div class="gllpMap">Google Maps</div>
+              <input type="hidden" class="gllpLatitude"/>
+              <input type="hidden" class="gllpLongitude"/>
+              <input type="hidden" class="gllpZoom"/>
+              </fieldset>
+            </div>
           </div>
-
         </div>
+        <div class="lat-info"></div>
         <div class="dates hidden">
           <div class="wrap text-center">
             <span class="december button white">Verano</span>
@@ -81,7 +94,6 @@
       </footer>
     </div>
     <script type="text/javascript" src="suncalc/suncalc.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script type="text/javascript" src="js/escotometro.js"></script>
     <script type="text/javascript" src="js/canvas.js"></script>
   </body>
