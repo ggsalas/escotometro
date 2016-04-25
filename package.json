@@ -1,0 +1,30 @@
+{
+  "name": "escotometro",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Calculate the position of the sun with the goal to serve primary data for architecture design",
+  "main": "src/index.html",
+  "dependencies": {
+    "jquery-latitude-longitude-picker-gmaps": "^1.1.0"
+  },
+  "devDependencies": {
+    "gh-pages": "0.11.0",
+    "standard": "6.0.8"
+  },
+  "scripts": {
+    "start": "live-server src",
+    "build": "npm run lint",
+    "lint": "standard src",
+    "deploy": "gh-pages -d public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggsalas/escotometro.git"
+  },
+  "author": "ggsalas",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ggsalas/escotometro/issues"
+  },
+  "homepage": "https://github.com/ggsalas/escotometro#readme"
+}
