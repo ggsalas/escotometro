@@ -15,7 +15,7 @@
     "start": "live-server src",
     "build": "npm run lint",
     "lint": "standard src",
-    "deploy": "gh-pages -d public"
+    "deploy": "gh-pages -d src"
   },
   "repository": {
     "type": "git",
