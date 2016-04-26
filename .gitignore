@@ -2,3 +2,4 @@
 node_modules
 public
 src/js/vendor/
+npm-debug.log

@@ -14,7 +14,7 @@
     "standard": "6.0.8"
   },
   "scripts": {
-    "postinstall": "mkdir -p src/js/vendor && cp node_modules/jquery-latitude-longitude-picker-gmaps/js/jquery-gmaps-latlon-picker.js src/js/vendor/ && cp node_modules/suncalc/suncalc.js src/js/vendor/",
+    "postinstall": "./scripts/postinstall.sh",
     "start": "live-server src",
     "build": "npm run lint",
     "lint": "standard src",
