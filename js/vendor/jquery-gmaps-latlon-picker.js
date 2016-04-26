@@ -239,5 +239,5 @@ $(document).ready( function() {
 });
 
 $(document).bind("location_changed", function(event, object) {
-	console.log("changed: " + $(object).attr('lat') );
+	console.log("changed: " + $(object).attr('id') );
 });
